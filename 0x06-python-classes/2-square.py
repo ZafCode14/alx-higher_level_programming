@@ -16,4 +16,4 @@ class Square:
             else:
                 self.__size = size
         else:
-            raise TypeError("size must be and interger")
+            raise TypeError("size must be an interger")
