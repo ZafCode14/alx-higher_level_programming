@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Write an empty class Square that defines a square"""
+
+"""defines a class Square"""
+
+
 class Square:
     """empy class Square"""
     pass
