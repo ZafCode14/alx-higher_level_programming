@@ -4,5 +4,5 @@
 
 
 class Square:
-    """empy class Square"""
+    """empty class Square"""
     pass
