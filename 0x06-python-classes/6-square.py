@@ -45,4 +45,6 @@ class Square:
                 print(" ", end="")
             for l in range(self.size):
                 print("#", end="")
+            if self.size == 0:
+                print()
             print()
