@@ -1,0 +1,20 @@
+The "5-text_indentation" module
+==========================
+
+Using "text_indentation"
+-------------------
+
+'importing ``text_indentation`` from the ``5-text_indentation`` module:'
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Testing:
+
+'Testing indentation'
+	>>> text_indentation("    Hello.   is this, me ?      ok; then:       friend")
+	Hello.
+	<BLANKLINE>
+	is this, me ?
+	<BLANKLINE>
+	ok; then:
+	<BLANKLINE>
+	friend
