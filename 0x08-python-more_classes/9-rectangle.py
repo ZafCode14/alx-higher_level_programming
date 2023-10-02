@@ -7,6 +7,10 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
+    @classmethod
+    def square(cls, size=0):
+        return cls(size, size)
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
@@ -18,9 +22,6 @@ class Rectangle:
         else:
             return rect_2
 
-    @classmethod
-    def square(cls, size=0):
-        return cls(size, size)
     def __init__(self, width=0, height=0):
         """Initializing rectangle
         Args:
@@ -86,4 +87,3 @@ class Rectangle:
         """when an instance is deleted"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-
