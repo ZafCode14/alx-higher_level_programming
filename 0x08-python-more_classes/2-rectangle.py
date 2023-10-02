@@ -4,7 +4,6 @@
 
 class Rectangle:
     """Class that represents a rectangle"""
-
     def __init__(self, width=0, height=0):
         """Initializing rectangle
         Args:
@@ -33,7 +32,7 @@ class Rectangle:
         """retrieves the height"""
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
         """sets the height"""
         if not isinstance(value, int):
