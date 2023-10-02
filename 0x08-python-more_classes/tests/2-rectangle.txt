@@ -1,0 +1,57 @@
+The ``2-rectange`` module
+=============================
+
+Using ``Rectangle``
+----------------------
+
+importing ``Rectangle`` from the ``2-rectangle`` module:
+	>>> Rectangle = __import__("2-rectangle").Rectangle
+
+Testing:
+
+	>>> my_rectangle = Rectangle(2, 4)
+	>>> print(my_rectangle.__dict__)
+	{'_Rectangle__height': 4, '_Rectangle__width': 2}
+	>>> my_rectangle.width = 10
+	>>> my_rectangle.height = 3
+	>>> print(my_rectangle.__dict__)
+	{'_Rectangle__height': 3, '_Rectangle__width': 10}
+
+'Testing if width not an integer'
+	>>> my_rectangle.width = "not integer"
+	Traceback (most recent call last):
+	TypeError: width must be an integer
+
+'Testing if width is less than 0'
+	>>> my_rectangle.width = -8
+	Traceback (most recent call last):
+	ValueError: width must be >= 0
+	
+'Testing if height not an integer'
+	>>> my_rectangle.height = "not integer"
+	Traceback (most recent call last):
+	TypeError: height must be an integer
+
+'Testing if width is less than 0'
+	>>> my_rectangle.height = -8
+	Traceback (most recent call last):
+	ValueError: height must be >= 0
+
+'Testing area and perimiter'
+	>>> my_rectangle = Rectangle(2, 4)
+	>>> print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+	Area: 8 - Perimeter: 12
+	>>> my_rectangle.width = 10
+	>>> my_rectangle.height = 3
+	>>> print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+	Area: 30 - Perimeter: 26
+	
+	>>> my_rectangle.width = 0
+	>>> my_rectangle.height = 3
+	>>> print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+	Area: 0 - Perimeter: 0
+
+	>>> my_rectangle.width = 2
+	>>> my_rectangle.height = 0
+	>>> print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+	Area: 0 - Perimeter: 0
