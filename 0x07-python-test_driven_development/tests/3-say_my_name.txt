@@ -13,6 +13,11 @@ Testing:
 	>>> say_my_name("John", "Smith")
 	My name is John Smith
 
+'Testing missing args'
+	>>> say_my_name()
+	Traceback (most recent call last):
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
 	>>> say_my_name("Bob")
 	My name is Bob 
 
@@ -32,3 +37,4 @@ Testing:
 	>>> say_my_name(None, "Bob")
 	Traceback (most recent call last):
 	TypeError: first_name must be a string
+
