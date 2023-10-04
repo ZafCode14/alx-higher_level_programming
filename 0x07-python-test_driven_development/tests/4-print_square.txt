@@ -14,6 +14,11 @@ importing ``print_square`` from the ``4-print_square`` module:
 
 	>>> print_square(0)
 
+'Testing missing args'
+	>>> print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'
+
 'Testing if non integer is added'
 	>>> print_square("not integer")
 	Traceback (most recent call last):
@@ -32,3 +37,4 @@ importing ``print_square`` from the ``4-print_square`` module:
 	>>> print_square(2.0)
 	Traceback (most recent call last):
 	TypeError: size must be an integer
+
