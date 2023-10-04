@@ -36,7 +36,20 @@ Testing:
 	Traceback (most recent call last):
 	TypeError: div must be a number
 
-'Testinf for division by zero'
+'Testing for division by zero'
 	>>> print(matrix_divided([[1, 2, 3], [4, 5, 6]], 0))
 	Traceback (most recent call last):
 	ZeroDivisionError: division by zero
+
+'Testing for division by float('inf')'
+	>>> print(matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf')))
+	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+'Testing for missing arguments'
+	>>> print(matrix_divided([[1, 2, 3], [4, 5, 6]]))
+	Traceback (most recent call last):
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+	>>> print(matrix_divided())
+	Traceback (most recent call last):
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
