@@ -27,4 +27,4 @@ def text_indentation(text):
             indented_text += char
             skip_whitespace = False
 
-    print(indented_text)
+    print(indented_text, end="")
