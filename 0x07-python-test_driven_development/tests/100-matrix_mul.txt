@@ -16,6 +16,15 @@ Testing:
 	>>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
 	[[13, 16]]
 
+'Testing missing args'
+	>>> print(matrix_mul([[1, 2], [3, 4]]))
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+	
+	>>> print(matrix_mul())
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
 'Testing m_a and m_b must be a list of lists of integers or floats'
 '	if m_a not list '
 	>>> print(matrix_mul("not list", [[1, 2], [3, 4]]))
@@ -42,8 +51,15 @@ Testing:
 	Traceback (most recent call last):
 	ValueError: m_a can't be empty
 
+	>>> print(matrix_mul([[]], [[1, 2], [3, 4]]))
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+
 '	if m_b is empty'
 	>>> print(matrix_mul([[1, 2], [3, 4]], []))
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+	>>> print(matrix_mul([[1, 2], [3, 4]], [[]]))
 	Traceback (most recent call last):
 	ValueError: m_b can't be empty
 
@@ -71,4 +87,3 @@ Testing:
 	>>> print(matrix_mul([[1, 2], [4, 5]], [[6, 7], [8, 9], [3, 4]]))
 	Traceback (most recent call last):
 	ValueError: m_a and m_b can't be multiplied
-
