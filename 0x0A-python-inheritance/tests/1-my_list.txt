@@ -20,3 +20,13 @@ Testing:
 	[1, 2, 3, 4, 5]
 	>>> print(my_list)
 	[1, 4, 2, 3, 5]
+	>>> list_1 = MyList()
+	>>> list_1.append(-3)
+	>>> list_1.append(-1)
+	>>> list_1.append(-4)
+	>>> list_1.append(-2)
+	>>> list_1.print_sorted()
+	[-4, -3, -2, -1]
+	>>> list_2 = MyList()
+	>>> list_2.print_sorted()
+	[]
