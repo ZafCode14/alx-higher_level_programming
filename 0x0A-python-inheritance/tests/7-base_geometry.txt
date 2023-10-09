@@ -1,4 +1,10 @@
-'importing'
+The "7-base_geometry" module
+==========================
+
+Using "BaseGeometry"
+-------------------
+
+'importing ``BaseGeometry`` from the ``7-base_geometry`` module:'
 	>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 Testing:
@@ -29,3 +35,5 @@ Testing:
 	>>> bg.integer_validator("many", 2, 2)
 	Traceback (most recent call last):
 	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+	
