@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Module with a class"""
-
-
 Rectangle = __import__("9-rectangle").Rectangle
+
 
 class Square(Rectangle):
     """Class with methods"""
