@@ -1,10 +1,13 @@
+"""Module with a class for tests"""
 from models.rectangle import Rectangle
 from models.base import Base
 import unittest
 import sys
 from io import StringIO
 
+
 class TestRectangle(unittest.TestCase):
+    """Class with method tests"""
     def setUp(self):
         Base._Base__nb_objects = 0
 
@@ -87,7 +90,7 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_str(self):
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
-        
+
         r2 = Rectangle(5, 5, 1)
         self.assertEqual(str(r2), "[Rectangle] (1) 1/0 - 5/5")
 
@@ -107,11 +110,15 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_dictionary(self):
         r1 = Rectangle(1, 2, 3, 4)
         r1_dict = r1.to_dictionary()
-        self.assertEqual(str(r1_dict), "{'id': 1, 'width': 1, 'height': 2, 'x': 3, 'y': 4}")
+        self.assertEqual(
+                str(r1_dict),
+                "{'id': 1, 'width': 1, 'height': 2, 'x': 3, 'y': 4}"
+        )
 
         r2 = Rectangle(1, 1)
         r2.update(**r1_dict)
         self.assertEqual(str(r2), "[Rectangle] (1) 3/4 - 1/2")
+
 
 if __name__ == "__main__":
     unittest.main()

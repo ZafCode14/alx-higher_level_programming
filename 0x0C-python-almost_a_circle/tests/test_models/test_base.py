@@ -1,8 +1,11 @@
+"""Module with a unittest for Base"""
 from models.base import Base
 from models.rectangle import Rectangle
 import unittest
 
+
 class TestBase(unittest.TestCase):
+    """Class of methods for unittest"""
     def setUp(self):
         Base._Base__nb_objects = 0
 
@@ -21,7 +24,10 @@ class TestBase(unittest.TestCase):
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         self.assertIsInstance(json_dictionary, str)
-        self.assertEqual(str(json_dictionary), '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]')
+        self.assertEqual(
+                str(json_dictionary),
+                '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]'
+        )
         json_dictionary = Base.to_json_string([])
         self.assertEqual(str(json_dictionary), '[]')
 
@@ -34,7 +40,11 @@ class TestBase(unittest.TestCase):
 
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", "r") as f:
-            self.assertEqual(str(f.read()), '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, {"id": 2, "width": 4, "height": 2, "x": 0, "y": 0}]')
+            self.assertEqual(
+                    str(f.read()),
+                    '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, '
+                    '{"id": 2, "width": 4, "height": 2, "x": 0, "y": 0}]'
+            )
 
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as f:
@@ -44,7 +54,6 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(str(f.read()), '[]')
 
-
     def test_from_json_string(self):
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
@@ -53,7 +62,11 @@ class TestBase(unittest.TestCase):
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertIsInstance(list_output, list)
-        self.assertEqual(str(list_output), "[{'id': 89, 'width': 10, 'height': 4}, {'id': 7, 'width': 1, 'height': 7}]")
+        self.assertEqual(
+                str(list_output),
+                "[{'id': 89, 'width': 10, 'height': 4}, "
+                "{'id': 7, 'width': 1, 'height': 7}]"
+        )
 
         list_output = Rectangle.from_json_string(None)
         self.assertEqual(str(list_output), "[]")
@@ -70,7 +83,7 @@ class TestBase(unittest.TestCase):
     def test_load_and_save_form_file(self):
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
-        
+
         Rectangle.save_to_file([r1, r2])
         output = Rectangle.load_from_file()
 

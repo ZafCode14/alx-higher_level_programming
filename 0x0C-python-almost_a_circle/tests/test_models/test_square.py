@@ -1,10 +1,13 @@
+"""Module with a class for tests"""
 from models.square import Square
 from models.base import Base
 from io import StringIO
 import sys
 import unittest
 
+
 class TestSquare(unittest.TestCase):
+    """Class with method tests"""
     def setUp(self):
         Base._Base__nb_objects = 0
 
@@ -90,7 +93,6 @@ class TestSquare(unittest.TestCase):
         s2.update(**s1_dict)
         self.assertEqual(str(s2), "[Rectangle] (1) 3/4 - 2")
 
-
     def test_square_display(self):
         s1 = Square(3, 1, 3)
 
@@ -111,6 +113,7 @@ class TestSquare(unittest.TestCase):
         s2 = Square(1)
         s2.update(**s1_dict)
         self.assertEqual(str(s2), "[Square] (4) 2/3 - 1")
+
 
 if __name__ == "__main__":
     unittest.main()
