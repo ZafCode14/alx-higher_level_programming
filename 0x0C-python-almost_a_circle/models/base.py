@@ -25,12 +25,13 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + ".json"
-        with open(filename, "w") as f:
-            if list_objs is None:
-                f.write("[]")
-            else:
-                list_dicts = [o.to_dictionary() for o in list_objs]
-                f.write(Base.to_json_string(list_dicts))
+
+        if list_objs == None:
+            list_objs = []
+        list_dict = [d.to_dictionary() for d in list_objs]
+        json_string = cls.to_json_string(list_dict)
+        with open(filename, "w", encoding="utf-8") as json_f:
+            json_f.write(json_string)
 
     @staticmethod
     def from_json_string(json_string):
@@ -40,9 +41,9 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        if cls.__name__ == 'Rectangle':
+        if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
-        elif cls.__name__ == 'Square':
+        elif cls.__name__ == "Square":
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
@@ -50,15 +51,14 @@ class Base:
     @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
-        if os.path.exists(filename):
-            with open(filename, "r", encoding="utf-8") as f:
-                string = f.read()
 
-        instances = []
-        dictionaries = cls.from_json_string(string)
-        for d in dictionaries:
-            instances.append(cls.create(**d))
-        return instances
+        try:
+            with open(filename, "r", encoding="utf-8") as json_f:
+                json_string = json_f.read()
+            list_dict = cls.from_json_string(json_string)
+            return [cls.create(**d) for d in list_dict]
+        except IOError:
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
