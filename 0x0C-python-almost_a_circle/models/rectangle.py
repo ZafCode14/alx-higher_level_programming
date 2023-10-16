@@ -6,6 +6,7 @@ from models.base import Base
 class Rectangle(Base):
     """Class with a method"""
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initializing method"""
         self.width = width
         self.height = height
         self.x = x
@@ -61,17 +62,21 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Method for area"""
         return self.width * self.height
 
     def display(self):
+        """Method that displays"""
         [print() for i in range(self.y)]
         [print(" " * self.x + "#" * self.width) for i in range(self.height)]
 
     def __str__(self):
+        """Mothod for printing"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
             .format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
+        """Method for updating"""
         try:
             self.id = args[0]
             self.width = args[1]
@@ -85,6 +90,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """Method for a dictionary"""
         return {
                 "id": self.id,
                 "width": self.width,
