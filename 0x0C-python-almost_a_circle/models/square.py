@@ -9,6 +9,7 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """Method to print"""
         return "[Square] ({:d}) {:d}/{:d} - {:d}"\
             .format(self.id, self.x, self.y, self.width)
 
@@ -22,6 +23,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """Method to update"""
         try:
             self.id = args[0]
             self.size = args[1]
@@ -35,6 +37,7 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """Method to dictionary"""
         return {
                 "id": self.id,
                 "size": self.size,
