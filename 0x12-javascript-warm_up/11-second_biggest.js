@@ -6,7 +6,5 @@ if (args.length === 0 || args.length === 1) {
   console.log(0);
 } else {
   const sorted = args.sort();
-  const unique = [...new Set(sorted)];
-  const len = unique.length;
-  console.log(unique[len - 2]);
+  console.log(sorted[args.length - 2]);
 }
