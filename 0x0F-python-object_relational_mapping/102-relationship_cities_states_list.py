@@ -12,11 +12,9 @@ if __name__ == "__main__":
             argv[1], argv[2], argv[3])
     engine = create_engine(conn_str, pool_pre_ping=True)
     Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).join(City).order_by(State.id, City.id).all()
-
-    for state in states:
-        for city in state.cities:
-            print("{}: {} -> {}".format(city.id, city.name, state.name))
+    for city in session.query(City).all():
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
