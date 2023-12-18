@@ -12,12 +12,13 @@ if __name__ == "__main__":
             argv[1], argv[2], argv[3])
     engine = create_engine(conn_str, pool_pre_ping=True)
     Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    cal = State(name="California")
-    sfr = City(name="San Francisco")
-    cal.cities.append(sfr)
+    california = State(name="California")
+    san_francisco = City(name="San Francisco", state=california)
 
-    session.add(cal)
+    session.add(california)
+    session.add(san_francisco)
     session.commit()
