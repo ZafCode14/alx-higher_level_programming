@@ -11,14 +11,12 @@ if __name__ == "__main__":
     conn_str = "mysql://{}:{}@localhost:3306/{}".format(
             argv[1], argv[2], argv[3])
     engine = create_engine(conn_str, pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).\
-        outerjoin(City).order_by(State.id, City.id).all()
-
-    for state in states:
+    for state in session.query(State).all():
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
             print("    {}: {}".format(city.id, city.name))
+
