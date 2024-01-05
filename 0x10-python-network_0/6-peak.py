@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module with a funciton"""
 
+
 def find_peak(list_of_integers):
     """Function that prints a peak of a list"""
     left, right = 0, len(list_of_integers) - 1
