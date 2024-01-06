@@ -5,9 +5,16 @@ from sys import argv
 
 
 if __name__ == "__main__":
+    if len(argv) == 1:
+        letter = ""
+    else:
+        letter = argv[1]
     try:
         r = requests.post(
-                "http://0.0.0.0:5000/search_user", data={"q": argv[1]})
-        print("[{}] {}".format(r.json()["id"], r.json()["name"]))
+                "http://0.0.0.0:5000/search_user", data={"q": letter})
+        if r.json() == {}:
+            print("No result")
+        else:
+            print("[{}] {}".format(r.json()["id"], r.json()["name"]))
     except Exception:
-        print("No result")
+        print("Not a valid JOSN")
