@@ -9,7 +9,10 @@ if __name__ == "__main__":
             "https://api.github.com/repos/{}/{}/commits".format(
                 argv[2], argv[1]))
     commit = r.json()
-    for i in range(10):
-        print("{}: {}".format(
-            commit[i].get("sha"),
-            commit[i].get("commit").get("author").get("name")))
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commit[i].get("sha"),
+                commit[i].get("commit").get("author").get("name")))
+    except Exception:
+        pass
