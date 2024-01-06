@@ -10,5 +10,8 @@ if __name__ == "__main__":
     password = argv[2]
     auth = HTTPBasicAuth(username, password)
 
-    r = requests.get("https://api.github.com/user", auth=auth)
-    print(r.json()["id"])
+    try:
+        r = requests.get("https://api.github.com/user", auth=auth)
+        print(r.json()["id"])
+    except Exception:
+        print("None")
