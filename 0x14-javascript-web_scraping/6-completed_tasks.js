@@ -18,7 +18,9 @@ request(url, (error, response, body) => {
       if (user.completed === true) {
         count++;
       }
-      dict[user.userId] = count;
+      if (count !== 0) {
+        dict[user.userId] = count;
+      }
     });
     console.log(dict);
   }
