@@ -8,18 +8,13 @@ request(url, (error, response, body) => {
   } else if (response) {
     const data = JSON.parse(body);
     const dict = {};
-    let count = 0;
-    let usersId = 0;
     data.forEach((user) => {
-      if (usersId !== user.userId) {
-        count = 0;
-        usersId = user.userId;
-      }
-      if (user.completed === true) {
-        count++;
-      }
-      if (count !== 0) {
-        dict[user.userId] = count;
+      if (user.completed) {
+        if (!dict[user.userId]) {
+          dict[user.userId] = 1;
+        } else {
+          dict[user.userId] += 1;
+        }
       }
     });
     console.log(dict);
